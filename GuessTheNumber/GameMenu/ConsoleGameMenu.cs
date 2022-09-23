@@ -1,5 +1,5 @@
 ﻿using GuessTheNumber.GameMenu.ConsoleMenu;
-using GuessTheNumber.Games.Interfaces;
+using GuessTheNumber.GameServices.Interfaces;
 
 namespace GuessTheNumber.GameMenu
 {

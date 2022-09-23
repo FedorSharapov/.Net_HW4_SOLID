@@ -1,4 +1,6 @@
-﻿namespace GuessTheNumber.Games.Interfaces
+﻿using GuessTheNumber.Settings;
+
+namespace GuessTheNumber.GameServices.Interfaces
 {
     interface IGameInit
     {

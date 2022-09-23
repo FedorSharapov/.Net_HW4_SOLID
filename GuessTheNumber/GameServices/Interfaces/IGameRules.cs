@@ -1,4 +1,4 @@
-﻿namespace GuessTheNumber.Games.Interfaces
+﻿namespace GuessTheNumber.GameServices.Interfaces
 {
     interface IGameRules
     {

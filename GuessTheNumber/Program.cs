@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using GuessTheNumber.GameManager;
 using GuessTheNumber.Generator;
-using GuessTheNumber.Games.Interfaces;
-using GuessTheNumber.Games;
+using GuessTheNumber.GameServices.Interfaces;
+using GuessTheNumber.GameServices;
 using GuessTheNumber.GameMenu;
 
 namespace GuessTheNumber
