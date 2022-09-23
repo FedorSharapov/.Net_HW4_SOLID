@@ -1,7 +1,8 @@
 ﻿using GuessTheNumber.GameManager;
-using GuessTheNumber.Games.Interfaces;
+using GuessTheNumber.GameServices.Interfaces;
+using GuessTheNumber.Settings;
 
-namespace GuessTheNumber.Games
+namespace GuessTheNumber.GameServices
 {
     class GameInit : IGameInit
     {
@@ -22,12 +23,12 @@ namespace GuessTheNumber.Games
 
             _manager.DisplayText("Верхняя граница диапазона: ");
             if (!InitSecretNumberMax(newSettings))
-                return null;
-
+                return new GameSettings();
+            
             _manager.DisplayText("Количество попыток за которое вы угадаете число: ");
             if (!InitAttemptMax(newSettings))
-                return null;
-
+                return new GameSettings();
+            
             return newSettings;
         }
         #endregion
@@ -50,6 +51,7 @@ namespace GuessTheNumber.Games
             if (newSettings.SecretNumberMax <= newSettings.SecretNumberMin)
             {
                 _manager.DisplayError("Верхняя граница диапазона должна быть больше нижней границы!\r\n");
+                DisplayTextDefaultSettings();
                 return false;
             }
 
@@ -65,10 +67,16 @@ namespace GuessTheNumber.Games
             if (newSettings.AttemptMax == 0)
             {
                 _manager.DisplayError("Количество попыток должно быть больше нуля!\r\n");
+                DisplayTextDefaultSettings();
                 return false;
             }
 
             return true;
+        }
+
+        private void DisplayTextDefaultSettings()
+        {
+            _manager.DisplayText("Применены настройки по умолчанию!\r\n");
         }
     }
 }

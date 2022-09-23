@@ -1,8 +1,9 @@
 ﻿using GuessTheNumber.GameManager;
 using GuessTheNumber.Generator;
-using GuessTheNumber.Games.Interfaces;
+using GuessTheNumber.GameServices.Interfaces;
+using GuessTheNumber.Settings;
 
-namespace GuessTheNumber.Games
+namespace GuessTheNumber.GameServices
 {
     class GamePlay : IGamePlay
     {
@@ -14,12 +15,7 @@ namespace GuessTheNumber.Games
         {
             _manager = manager;
             _secretNumber = secretNumber;
-            _settings = new GameSettings
-            {
-                SecretNumberMin = 0,
-                SecretNumberMax = 100,
-                AttemptMax = 15
-            };
+            _settings = new GameSettings();
         }
 
         public void Play()

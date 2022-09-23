@@ -1,8 +1,9 @@
-﻿using GuessTheNumber.Games.Interfaces;
+﻿using GuessTheNumber.GameServices.Interfaces;
 using GuessTheNumber.GameManager;
 using GuessTheNumber.Generator;
+using GuessTheNumber.Settings;
 
-namespace GuessTheNumber.Games
+namespace GuessTheNumber.GameServices
 {
     class Game : GamePlay, IGame
     {
@@ -16,13 +17,7 @@ namespace GuessTheNumber.Games
 
         public GameSettings Init()
         {
-            var newSettings = _gameInit.Init();
-
-            if (newSettings != null)
-                _settings = newSettings;
-            else
-                _manager.DisplayText("Применены настройки по умолчанию!\r\n");
-
+            _settings = _gameInit.Init();
             return _settings;
         }
 
