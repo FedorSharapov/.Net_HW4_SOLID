@@ -5,11 +5,11 @@ namespace GuessTheNumber.Services
 {
     public class MultilevelGame : BaseGame
     {
-        private ILevelSettings[] _levelsSettings;
+        private LevelSettings[] _levelsSettings;
 
         public MultilevelGame(ILevel level) : base(level)
         {
-            _levelsSettings = new ILevelSettings[]
+            _levelsSettings = new LevelSettings[]
             {
                 _level.Settings,
                 new LevelSettings(1,50,5),
