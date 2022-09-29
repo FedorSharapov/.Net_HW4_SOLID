@@ -1,10 +1,10 @@
-﻿using GuessTheNumber.Games.Interfaces;
-using GuessTheNumber.Levels.Interfaces;
+﻿using GuessTheNumber.Levels.Interfaces;
+using GuessTheNumber.Services.Interfaces;
 using GuessTheNumber.Settings;
 
 namespace GuessTheNumber.Services
 {
-    public class UserGame : BaseGame, IUserGame
+    public class UserGame : BaseGame, IGameInit
     {
         private LevelSettings _userSettings;
         IUserLevelInit _levelInit;

@@ -1,22 +1,24 @@
 ﻿using ConsoleProvider.Menu;
-using GuessTheNumber.Games.Interfaces;
 using GuessTheNumber.Generators;
 using GuessTheNumber.Levels;
 using GuessTheNumber.Levels.Interfaces;
 using GuessTheNumber.Rules;
 using GuessTheNumber.Services;
+using GuessTheNumber.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ConsoleProvider
 {
+    public delegate IGamePlay GamePlayProvider(string key);
+
     internal class Program
     {
         static void Main()
         {
-            var gameProvider = ConfigureServices();
-
             try
             {
+                var gameProvider = ConfigureServices();
+            
                 var menu = gameProvider.GetService<IGameMenu>();
                 menu.Start();
             }  
@@ -34,9 +36,26 @@ namespace ConsoleProvider
             serviceCollection.AddSingleton<ILevelManager, ConsoleLevelManager>();
             serviceCollection.AddSingleton<ILevel, Level>();
             serviceCollection.AddSingleton<IUserLevelInit, UserLevelInit>();
+            
+            serviceCollection.AddSingleton<MultilevelGame>();
+            serviceCollection.AddSingleton<UserGame>();
+            
+            serviceCollection.AddSingleton<IGameInit>(s => s.GetService<UserGame>());
+
+            serviceCollection.AddSingleton<GamePlayProvider>(serviceProvider => key =>
+            {
+                switch (key)
+                {
+                    case "multi":
+                        return serviceProvider.GetService<MultilevelGame>();
+                    case "user":
+                        return serviceProvider.GetService<UserGame>();
+                    default:
+                        throw new KeyNotFoundException();
+                }
+            });
+
             serviceCollection.AddSingleton<IGameDescription, GameDescription>();
-            serviceCollection.AddSingleton<IGame, MultilevelGame>(); //serviceCollection.AddSingleton<IGame, BaseGame>();
-            serviceCollection.AddSingleton<IUserGame, UserGame>();
             serviceCollection.AddSingleton<IGameMenu, ConsoleGameMenu>();
 
             return serviceCollection.BuildServiceProvider();
