@@ -12,7 +12,7 @@ namespace GuessTheNumber.Levels
             _manager = manager;
         }
 
-        public ILevelSettings Init()
+        public LevelSettings Init()
         {
             var newSettings = new LevelSettings();
 

@@ -9,7 +9,7 @@ namespace GuessTheNumber.Levels
         private readonly ILevelManager _manager;
         private readonly INumberGenerator _secretNumber;
 
-        public ILevelSettings Settings { get; set; }
+        public LevelSettings Settings { get; set; }
 
         public Level(ILevelManager manager, INumberGenerator secretNumber)
         {

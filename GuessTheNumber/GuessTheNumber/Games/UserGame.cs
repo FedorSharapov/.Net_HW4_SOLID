@@ -6,7 +6,7 @@ namespace GuessTheNumber.Services
 {
     public class UserGame : BaseGame, IUserGame
     {
-        private ILevelSettings _userSettings;
+        private LevelSettings _userSettings;
         IUserLevelInit _levelInit;
 
         public UserGame(ILevel level, IUserLevelInit levelInit) : base(level)

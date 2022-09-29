@@ -1,11 +1,10 @@
 ﻿namespace GuessTheNumber.Settings
 {
-    class LevelSettings : ILevelSettings
+    public class LevelSettings
     {
         /// <summary>
         /// Нижняя граница диапазона загадываемого числа
         /// </summary>
-        /// 
         public int SecretNumberMin { get; set; }
 
         /// <summary>

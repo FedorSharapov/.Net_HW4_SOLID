@@ -8,6 +8,6 @@ namespace GuessTheNumber.Levels.Interfaces
         /// Инициализация уровня игры
         /// </summary>
         /// <returns>настройки уровня игры</returns>
-        ILevelSettings Init();
+        LevelSettings Init();
     }
 }

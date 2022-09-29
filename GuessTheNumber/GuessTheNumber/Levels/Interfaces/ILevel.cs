@@ -7,7 +7,7 @@ namespace GuessTheNumber.Levels.Interfaces
         /// <summary>
         /// Настройки уровня
         /// </summary>
-        public ILevelSettings Settings { get; set; }
+        public LevelSettings Settings { get; set; }
 
         /// <summary>
         /// Начать уровень игры
