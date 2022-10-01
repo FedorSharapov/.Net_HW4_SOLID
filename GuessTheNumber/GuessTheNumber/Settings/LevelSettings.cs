@@ -13,7 +13,7 @@
         public int SecretNumberMax { get; set; }
 
         /// <summary>
-        /// Количество попыток, за каторое необходимо угадать загаданное число
+        /// Количество попыток, за которое необходимо угадать загаданное число
         /// </summary>
         public int AttemptMax { get; set; }
 
