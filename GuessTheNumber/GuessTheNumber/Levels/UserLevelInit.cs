@@ -55,7 +55,7 @@ namespace GuessTheNumber.Levels
         }
 
         /// <summary>
-        /// Инициализация количества попыток, за каторое необходимо угадать загаданное число
+        /// Инициализация количества попыток, за которое необходимо угадать загаданное число
         /// </summary>
         private bool InitAttemptMax(LevelSettings newSettings)
         {
